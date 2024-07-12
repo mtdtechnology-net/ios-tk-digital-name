@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "TK-Logo_RGB.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
