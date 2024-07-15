@@ -9,12 +9,16 @@ import SwiftUI
 import SwiftData
 
 struct HomeView: View {
-    
-    @Environment(\.modelContext) private var modelContext
-    @State private var showingSheet = false
-    
+
+    // MARK: - Properties
+
+    @AppStorage("person") private var person: String?
+    @State private var showingSettingsSheet = false
+    @State private var showingDataEntrySheet = false
     @Environment(\.verticalSizeClass) var verticalSizeClass
-    
+
+    // MARK: - Body
+
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
@@ -24,19 +28,30 @@ struct HomeView: View {
                     .padding(.leading, 40)
                     .padding(.top, 80)
                 Spacer()
-                Button {
-                    showingSheet.toggle()
-                } label: {
-                    Image(systemName: "gearshape")
-                        .resizable()
-                        .foregroundColor(.white)
-                        .frame(width: 40, height: 40)
+                HStack(spacing: 10) {
+                    Button {
+                        showingDataEntrySheet.toggle()
+                    } label: {
+                        Image(systemName: "person.text.rectangle")
+                            .resizable()
+                            .foregroundColor(.white)
+                            .frame(width: 60, height: 40)
+                    }
+                    .padding()
+
+                    Button {
+                        showingSettingsSheet.toggle()
+                    } label: {
+                        Image(systemName: "gearshape.fill")
+                            .resizable()
+                            .foregroundColor(.white)
+                            .frame(width: 40, height: 40)
+                    }
+                    .padding()
                 }
-                
-                .padding()
             }
             .frame(maxHeight: 80)
-            .background(.gray)
+            .background(.tkDunkelGrau)
             HStack {
                 if verticalSizeClass != .compact {
                     VStack {
@@ -49,34 +64,40 @@ struct HomeView: View {
                         Spacer()
                     }
                 }
-                VStack(alignment: .leading) {
-                    Text("welcome_title")
-                        .font(.title)
-                    Text("person_name")
-                        .font(.system(size: 90))
+                if let person = person {
+                    VStack(alignment: .leading, spacing: 10) {
+                        Text(person)
+                            .font(.system(size: 50))
+                            .bold()
+                        Text("greeting".localized)
+                            .font(.system(size: 20))
+                            .italic()
+                    }
+                    .padding()
                 }
-                .padding()
+
                 Spacer()
             }
-            .background(.tkLightGray)
+            .background(.tkHellgrau)
             .padding([.top, .bottom], 60)
         }
-        .toolbar {
-            ToolbarItem {
-                Button(action: showSetting) {
-                    Label("Settings", systemImage: "gearshape")
-                }
-            }
+        .sheet(isPresented: $showingDataEntrySheet) {
+            DataEntryView()
         }
-        .navigationBarHidden(true)
-        .sheet(isPresented: $showingSheet) {
-            DataView()
+        .sheet(isPresented: $showingSettingsSheet) {
+            SettingsView()
         }
     }
-    
+
     private func showSetting() {
         withAnimation {
-            showingSheet.toggle()
+            showingSettingsSheet.toggle()
+        }
+    }
+
+    private func showDataEntry() {
+        withAnimation {
+            showingDataEntrySheet.toggle()
         }
     }
 }
