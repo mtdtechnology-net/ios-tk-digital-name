@@ -11,11 +11,13 @@
 		1B7E0D212C3C400400B87286 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7E0D202C3C400400B87286 /* HomeView.swift */; };
 		1B7E0D252C3C400500B87286 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B7E0D242C3C400500B87286 /* Assets.xcassets */; };
 		1B7E0D282C3C400500B87286 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B7E0D272C3C400500B87286 /* Preview Assets.xcassets */; };
-		1B7E0D322C3C400500B87286 /* Digital_NameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7E0D312C3C400500B87286 /* Digital_NameTests.swift */; };
 		1B7E0D3C2C3C400500B87286 /* Digital_NameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7E0D3B2C3C400500B87286 /* Digital_NameUITests.swift */; };
-		1B7E0D3E2C3C400500B87286 /* Digital_NameUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7E0D3D2C3C400500B87286 /* Digital_NameUITestsLaunchTests.swift */; };
 		1B7E0D502C3D963300B87286 /* LanguageItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7E0D4F2C3D963300B87286 /* LanguageItemView.swift */; };
-		1B7E0D542C3E962700B87286 /* DataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7E0D532C3E962700B87286 /* DataView.swift */; };
+		1B7E0D542C3E962700B87286 /* DataEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7E0D532C3E962700B87286 /* DataEntryView.swift */; };
+		1F2247E92C41930E00537A2A /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 1F2247E82C41930E00537A2A /* Localizable.xcstrings */; };
+		1F2247ED2C4500AD00537A2A /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2247EC2C4500AD00537A2A /* StringExtension.swift */; };
+		1F2247F02C4506B700537A2A /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2247EF2C4506B700537A2A /* Language.swift */; };
+		1F7EDF562C454861006112E5 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7EDF552C454861006112E5 /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,12 +44,15 @@
 		1B7E0D242C3C400500B87286 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1B7E0D272C3C400500B87286 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1B7E0D2D2C3C400500B87286 /* Digital NameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Digital NameTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		1B7E0D312C3C400500B87286 /* Digital_NameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Digital_NameTests.swift; sourceTree = "<group>"; };
 		1B7E0D372C3C400500B87286 /* Digital NameUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Digital NameUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B7E0D3B2C3C400500B87286 /* Digital_NameUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Digital_NameUITests.swift; sourceTree = "<group>"; };
-		1B7E0D3D2C3C400500B87286 /* Digital_NameUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Digital_NameUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		1B7E0D4F2C3D963300B87286 /* LanguageItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageItemView.swift; sourceTree = "<group>"; };
-		1B7E0D532C3E962700B87286 /* DataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataView.swift; sourceTree = "<group>"; };
+		1B7E0D532C3E962700B87286 /* DataEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataEntryView.swift; sourceTree = "<group>"; };
+		1F2247E82C41930E00537A2A /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		1F2247EC2C4500AD00537A2A /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		1F2247EF2C4506B700537A2A /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
+		1F2247F12C453AE100537A2A /* Digital-Name-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Digital-Name-Info.plist"; sourceTree = SOURCE_ROOT; };
+		1F7EDF552C454861006112E5 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +83,7 @@
 		1B7E0D122C3C400400B87286 = {
 			isa = PBXGroup;
 			children = (
+				1F2247E82C41930E00537A2A /* Localizable.xcstrings */,
 				1B7E0D1D2C3C400400B87286 /* Digital Name */,
 				1B7E0D302C3C400500B87286 /* Digital NameTests */,
 				1B7E0D3A2C3C400500B87286 /* Digital NameUITests */,
@@ -98,7 +104,10 @@
 		1B7E0D1D2C3C400400B87286 /* Digital Name */ = {
 			isa = PBXGroup;
 			children = (
-				1B7E0D522C3E960E00B87286 /* Data */,
+				1F2247F12C453AE100537A2A /* Digital-Name-Info.plist */,
+				1F2247EE2C4506A700537A2A /* Model */,
+				1F2247EB2C4500A100537A2A /* Extension */,
+				1B7E0D522C3E960E00B87286 /* Settings */,
 				1B7E0D512C3E94E300B87286 /* Home */,
 				1B7E0D1E2C3C400400B87286 /* DigitalNameApp.swift */,
 				1B7E0D242C3C400500B87286 /* Assets.xcassets */,
@@ -118,7 +127,6 @@
 		1B7E0D302C3C400500B87286 /* Digital NameTests */ = {
 			isa = PBXGroup;
 			children = (
-				1B7E0D312C3C400500B87286 /* Digital_NameTests.swift */,
 			);
 			path = "Digital NameTests";
 			sourceTree = "<group>";
@@ -127,7 +135,6 @@
 			isa = PBXGroup;
 			children = (
 				1B7E0D3B2C3C400500B87286 /* Digital_NameUITests.swift */,
-				1B7E0D3D2C3C400500B87286 /* Digital_NameUITestsLaunchTests.swift */,
 			);
 			path = "Digital NameUITests";
 			sourceTree = "<group>";
@@ -140,13 +147,30 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
-		1B7E0D522C3E960E00B87286 /* Data */ = {
+		1B7E0D522C3E960E00B87286 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
 				1B7E0D4F2C3D963300B87286 /* LanguageItemView.swift */,
-				1B7E0D532C3E962700B87286 /* DataView.swift */,
+				1B7E0D532C3E962700B87286 /* DataEntryView.swift */,
+				1F7EDF552C454861006112E5 /* SettingsView.swift */,
 			);
-			path = Data;
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		1F2247EB2C4500A100537A2A /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				1F2247EC2C4500AD00537A2A /* StringExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		1F2247EE2C4506A700537A2A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1F2247EF2C4506B700537A2A /* Language.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,6 +259,15 @@
 			knownRegions = (
 				en,
 				Base,
+				ar,
+				de,
+				el,
+				it,
+				pl,
+				ro,
+				ru,
+				tr,
+				es,
 			);
 			mainGroup = 1B7E0D122C3C400400B87286;
 			productRefGroup = 1B7E0D1C2C3C400400B87286 /* Products */;
@@ -255,6 +288,7 @@
 			files = (
 				1B7E0D282C3C400500B87286 /* Preview Assets.xcassets in Resources */,
 				1B7E0D252C3C400500B87286 /* Assets.xcassets in Resources */,
+				1F2247E92C41930E00537A2A /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,10 +313,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1B7E0D542C3E962700B87286 /* DataView.swift in Sources */,
+				1F7EDF562C454861006112E5 /* SettingsView.swift in Sources */,
+				1B7E0D542C3E962700B87286 /* DataEntryView.swift in Sources */,
 				1B7E0D212C3C400400B87286 /* HomeView.swift in Sources */,
+				1F2247ED2C4500AD00537A2A /* StringExtension.swift in Sources */,
 				1B7E0D502C3D963300B87286 /* LanguageItemView.swift in Sources */,
 				1B7E0D1F2C3C400400B87286 /* DigitalNameApp.swift in Sources */,
+				1F2247F02C4506B700537A2A /* Language.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,7 +327,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1B7E0D322C3C400500B87286 /* Digital_NameTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,7 +334,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1B7E0D3E2C3C400500B87286 /* Digital_NameUITestsLaunchTests.swift in Sources */,
 				1B7E0D3C2C3C400500B87286 /* Digital_NameUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -371,7 +406,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -428,7 +463,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -449,11 +484,15 @@
 				DEVELOPMENT_TEAM = TH9HJJL4XR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Digital-Name-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "TK Digital Name";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -461,6 +500,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mtdtechnology.tk.Digital-Name";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -478,11 +521,15 @@
 				DEVELOPMENT_TEAM = TH9HJJL4XR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Digital-Name-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "TK Digital Name";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -490,6 +537,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mtdtechnology.tk.Digital-Name";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
