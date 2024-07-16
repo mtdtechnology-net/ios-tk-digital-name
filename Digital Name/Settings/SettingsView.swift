@@ -11,6 +11,13 @@ struct SettingsView: View {
 
     // MARK: - Properties
 
+    @AppStorage("languageSelections") private var languageSelectionsData: Data?
+    @AppStorage("person") private var person: String?
+    @AppStorage("email") private var emailCache: String?
+    @AppStorage("phone") private var phoneCache: String?
+    @AppStorage("position") private var positionCache: String?
+    var hasTappedOnClear: () -> Void
+
     // MARK: - Body
 
     var body: some View {
@@ -44,12 +51,31 @@ struct SettingsView: View {
                         .cornerRadius(10)
                         .padding(.horizontal)
                 }
+                .padding(.bottom, 50)
+
+                /// Action to clear the cache
+                Text("cache_description".localized)
+                    .multilineTextAlignment(.center)
+                    .font(.title)
+                Button(action: {
+                    clearCache()
+                }) {
+                    Text("clear_cache".localized)
+                        .font(.title2)
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(.tkCyan)
+                        .foregroundStyle(.white)
+                        .cornerRadius(10)
+                        .padding(.horizontal)
+                }
                 .padding(.bottom, 20)
 
                 Spacer()
             }
             .padding()
         }
+        .background(.tkHellgrau)
     }
 
     private func openAppSettings() {
@@ -59,8 +85,17 @@ struct SettingsView: View {
             }
         }
     }
+
+    private func clearCache() {
+        languageSelectionsData = nil
+        person = nil
+        emailCache = nil
+        phoneCache = nil
+        positionCache = nil
+        hasTappedOnClear()
+    }
 }
 
 #Preview {
-    SettingsView()
+    SettingsView { }
 }

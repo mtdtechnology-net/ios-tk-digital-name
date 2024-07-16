@@ -85,7 +85,6 @@
 			children = (
 				1F2247E82C41930E00537A2A /* Localizable.xcstrings */,
 				1B7E0D1D2C3C400400B87286 /* Digital Name */,
-				1B7E0D302C3C400500B87286 /* Digital NameTests */,
 				1B7E0D3A2C3C400500B87286 /* Digital NameUITests */,
 				1B7E0D1C2C3C400400B87286 /* Products */,
 			);
@@ -122,13 +121,6 @@
 				1B7E0D272C3C400500B87286 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		1B7E0D302C3C400500B87286 /* Digital NameTests */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Digital NameTests";
 			sourceTree = "<group>";
 		};
 		1B7E0D3A2C3C400500B87286 /* Digital NameUITests */ = {

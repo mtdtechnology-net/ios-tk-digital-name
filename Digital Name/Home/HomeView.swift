@@ -12,10 +12,15 @@ struct HomeView: View {
 
     // MARK: - Properties
 
+    @AppStorage("languageSelections") private var languageSelectionsData: Data?
+    @State private var languageSelections: [String: Bool] = [:]
+    @State private var phone: String = ""
+    @State private var email: String = ""
+    @State private var position: String = ""
     @AppStorage("person") private var person: String?
     @State private var showingSettingsSheet = false
     @State private var showingDataEntrySheet = false
-    @Environment(\.verticalSizeClass) var verticalSizeClass
+    @State private var orientation = UIDevice.current.orientation
 
     // MARK: - Body
 
@@ -52,40 +57,163 @@ struct HomeView: View {
             }
             .frame(maxHeight: 80)
             .background(.tkDunkelGrau)
-            HStack {
-                if verticalSizeClass != .compact {
-                    VStack {
-                        Spacer()
+
+            GeometryReader { geometry in
+                if geometry.size.width > geometry.size.height {
+                    /// LANDSCAPE
+                    HStack {
                         Image("SmartPhone")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .padding([.top, .bottom], 20)
-                            .padding(.leading, 40)
-                        Spacer()
-                    }
-                }
-                if let person = person {
-                    VStack(alignment: .leading, spacing: 10) {
-                        Text(person)
-                            .font(.system(size: 50))
-                            .bold()
-                        Text("greeting".localized)
-                            .font(.system(size: 20))
-                            .italic()
-                    }
-                    .padding()
-                }
+                            .padding([.top, .leading, .trailing], 50)
 
-                Spacer()
+                        VStack(alignment: .leading) {
+                            if let person = person, person != "" {
+                                VStack(alignment: .leading, spacing: 10) {
+                                    Text(person)
+                                        .font(.system(size: 50))
+                                        .bold()
+                                    Text("greeting".localized)
+                                        .font(.system(size: 20))
+                                        .italic()
+                                }
+                                .padding()
+                            }
+                            if !languageSelections.isEmpty {
+                                HStack {
+                                    ForEach(Array(languageSelections), id: \.key) { language in
+                                        if language.value {
+                                            Text(language.key)
+                                                .font(.system(size: 50))
+                                        }
+                                    }
+                                }
+                                .padding(.top, 5)
+                            }
+
+                            if phone != "" {
+                                HStack(spacing: 20) {
+                                    Image(systemName: "phone")
+                                    Text(phone)
+                                }
+                                .foregroundStyle(.tkWarmesGrau)
+                                .font(.system(size: 35))
+                            }
+
+                            if email != "" {
+                                HStack(spacing: 20) {
+                                    Image(systemName: "envelope")
+                                    Text(email)
+                                }
+                                .foregroundStyle(.tkWarmesGrau)
+                                .font(.system(size: 35))
+                            }
+
+                            if position != "" {
+                                HStack(spacing: 20) {
+                                    Image(systemName: "person.badge.shield.checkmark")
+                                    Text(position)
+                                }
+                                .foregroundStyle(.tkWarmesGrau)
+                                .font(.system(size: 35))
+                            }
+                        }
+                    }
+                } else {
+                    /// PORTRAIT
+                    VStack(alignment: .leading) {
+                        Image("SmartPhone")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .padding(.all, 50)
+
+                        if let person = person, person != "" {
+                            VStack(alignment: .leading, spacing: 10) {
+                                Text(person)
+                                    .font(.system(size: 50))
+                                    .bold()
+                                Text("greeting".localized)
+                                    .font(.system(size: 35))
+                                    .italic()
+                            }
+                            .padding(.leading, 50)
+                        }
+
+                        if !languageSelections.isEmpty {
+                            HStack {
+                                ForEach(Array(languageSelections), id: \.key) { language in
+                                    if language.value {
+                                        Text(language.key)
+                                            .font(.system(size: 50))
+                                    }
+                                }
+                            }
+                            .padding(.top, 5)
+                            .padding(.leading, 50)
+                        }
+
+                        if phone != "" {
+                            HStack(spacing: 20) {
+                                Image(systemName: "phone")
+                                Text(phone)
+                            }
+                            .foregroundStyle(.tkWarmesGrau)
+                            .font(.system(size: 35))
+                            .padding(.leading, 50)
+                        }
+
+                        if email != "" {
+                            HStack(spacing: 20) {
+                                Image(systemName: "envelope")
+                                Text(email)
+                            }
+                            .foregroundStyle(.tkWarmesGrau)
+                            .font(.system(size: 35))
+                            .padding(.leading, 50)
+                        }
+
+                        if position != "" {
+                            HStack(spacing: 20) {
+                                Image(systemName: "person.badge.shield.checkmark")
+                                Text(position)
+                            }
+                            .foregroundStyle(.tkWarmesGrau)
+                            .font(.system(size: 35))
+                            .padding(.leading, 50)
+                        }
+                    }
+                }
             }
-            .background(.tkHellgrau)
-            .padding([.top, .bottom], 60)
+            Spacer()
+        }
+        .background(.tkHellgrau)
+        .onAppear {
+            load()
+            NotificationCenter.default.addObserver(forName: UIDevice.orientationDidChangeNotification, object: nil, queue: .main) { _ in
+                self.orientation = UIDevice.current.orientation
+            }
         }
         .sheet(isPresented: $showingDataEntrySheet) {
-            DataEntryView()
+            DataEntryView(
+                languageSelections: $languageSelections,
+                phone: $phone,
+                email: $email,
+                position: $position
+            )
         }
         .sheet(isPresented: $showingSettingsSheet) {
-            SettingsView()
+            SettingsView {
+                languageSelections = [:]
+            }
+        }
+    }
+
+    // MARK: - Private methods
+
+    private func load() {
+        if let languageSelectionsData = languageSelectionsData,
+           let savedSelections = try? JSONDecoder().decode([String: Bool].self, from: languageSelectionsData) {
+            languageSelections = savedSelections
         }
     }
 
