@@ -21,10 +21,13 @@ struct DataEntryView: View {
     @Binding var phone: String
     @Binding var email: String
     @Binding var position: String
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
 
     // MARK: - Body
 
     var body: some View {
+        let isCompact = horizontalSizeClass == .compact
+        
         VStack {
             HStack {
                 Text("data_entry".localized)
@@ -37,7 +40,7 @@ struct DataEntryView: View {
                     save()
                 } label: {
                     Text("save".localized)
-                        .font(.title2)
+                        .font(isCompact ? .title3 : .title2)
                         .bold()
                 }
                 .padding()
@@ -48,20 +51,20 @@ struct DataEntryView: View {
                 VStack(alignment: .leading) {
                     Text("info_description".localized)
                         .bold()
-                        .font(.largeTitle)
+                        .font(isCompact ? .title : .largeTitle)
                         .foregroundStyle(.tkMittlegrau)
-                        .padding([.top, .bottom], 20)
+                        .padding([.top, .bottom], isCompact ? 10 : 20)
                     VStack(alignment: .leading, spacing: 15) {
                         /// Person name
                         Text("provide_first_name_and_last_name".localized)
                             .bold()
-                            .font(.largeTitle)
+                            .font(isCompact ? .title2 : .largeTitle)
                             .foregroundStyle(.tkCyan)
                         TextField("enter_name_here".localized, text: $person)
-                            .padding([.top, .bottom], 20)
+                            .padding([.top, .bottom], isCompact ? 10 : 20)
                             .padding(.leading, 10)
                             .bold()
-                            .font(.title2)
+                            .font(isCompact ? .title3 : .title2)
                             .foregroundStyle(.tkDunkelGrau)
                             .autocorrectionDisabled()
                             .textInputAutocapitalization(.words)
@@ -72,13 +75,13 @@ struct DataEntryView: View {
                         /// Person phone
                         Text("provide_phone".localized)
                             .bold()
-                            .font(.largeTitle)
+                            .font(isCompact ? .title2 : .largeTitle)
                             .foregroundStyle(.tkCyan)
                         TextField("enter_phone_here".localized, text: $phone)
-                            .padding([.top, .bottom], 20)
+                            .padding([.top, .bottom], isCompact ? 10 : 20)
                             .padding(.leading, 10)
                             .bold()
-                            .font(.title2)
+                            .font(isCompact ? .title3 : .title2)
                             .foregroundStyle(.tkDunkelGrau)
                             .autocorrectionDisabled()
                             .keyboardType(.phonePad)
@@ -91,13 +94,13 @@ struct DataEntryView: View {
                         /// Person email address
                         Text("provide_email".localized)
                             .bold()
-                            .font(.largeTitle)
+                            .font(isCompact ? .title2 : .largeTitle)
                             .foregroundStyle(.tkCyan)
                         TextField("enter_email_here".localized, text: $email)
-                            .padding([.top, .bottom], 20)
+                            .padding([.top, .bottom], isCompact ? 10 : 20)
                             .padding(.leading, 10)
                             .bold()
-                            .font(.title2)
+                            .font(isCompact ? .title3 : .title2)
                             .foregroundStyle(.tkDunkelGrau)
                             .autocorrectionDisabled()
                             .keyboardType(.emailAddress)
@@ -110,13 +113,13 @@ struct DataEntryView: View {
                         /// Person position
                         Text("provide_position".localized)
                             .bold()
-                            .font(.largeTitle)
+                            .font(isCompact ? .title2 : .largeTitle)
                             .foregroundStyle(.tkCyan)
                         TextField("enter_position_here".localized, text: $position)
-                            .padding([.top, .bottom], 20)
+                            .padding([.top, .bottom], isCompact ? 10 : 20)
                             .padding(.leading, 10)
                             .bold()
-                            .font(.title2)
+                            .font(isCompact ? .title3 : .title2)
                             .foregroundStyle(.tkDunkelGrau)
                             .autocorrectionDisabled()
                             .textInputAutocapitalization(.never)
@@ -131,7 +134,7 @@ struct DataEntryView: View {
                 VStack(alignment: .leading) {
                     Text("choose_languages".localized)
                         .bold()
-                        .font(.largeTitle)
+                        .font(isCompact ? .title2 : .largeTitle)
                         .foregroundStyle(.tkCyan)
                     ForEach(Language.allCases) { language in
                         LanguageItemView(language: language, isOn: self.binding(for: language))
@@ -139,7 +142,7 @@ struct DataEntryView: View {
                 }
                 .padding()
             }
-            .padding(.bottom, 20)
+            .padding(.bottom, isCompact ? 10 : 20)
             .onAppear(perform: load)
         }
         .background(.tkHellgrau)
