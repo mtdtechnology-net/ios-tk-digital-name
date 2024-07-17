@@ -21,17 +21,24 @@ struct HomeView: View {
     @State private var showingSettingsSheet = false
     @State private var showingDataEntrySheet = false
     @State private var orientation = UIDevice.current.orientation
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
 
     // MARK: - Body
 
     var body: some View {
         VStack(alignment: .leading) {
+            let isCompact = horizontalSizeClass == .compact
+            let width = isCompact ? 50 : 100
+            let height = isCompact ? 50 : 100
+            let leadingPadding = isCompact ? 20 : 40
+            let topPadding = isCompact ? 40 : 80
+
             HStack {
                 Image("TK")
                     .resizable()
-                    .frame(width: 100, height: 100)
-                    .padding(.leading, 40)
-                    .padding(.top, 80)
+                    .frame(width: CGFloat(width), height: CGFloat(height))
+                    .padding(.leading, CGFloat(leadingPadding))
+                    .padding(.top, CGFloat(topPadding))
                 Spacer()
                 HStack(spacing: 10) {
                     Button {
@@ -40,7 +47,8 @@ struct HomeView: View {
                         Image(systemName: "person.text.rectangle")
                             .resizable()
                             .foregroundColor(.white)
-                            .frame(width: 60, height: 40)
+                            .frame(width: isCompact ? 30 : 60,
+                                   height: isCompact ? 20 : 40)
                     }
                     .padding()
 
@@ -50,12 +58,13 @@ struct HomeView: View {
                         Image(systemName: "gearshape.fill")
                             .resizable()
                             .foregroundColor(.white)
-                            .frame(width: 40, height: 40)
+                            .frame(width:  CGFloat(leadingPadding),
+                                   height:  CGFloat(leadingPadding))
                     }
                     .padding()
                 }
             }
-            .frame(maxHeight: 80)
+            .frame(maxHeight: CGFloat(topPadding))
             .background(.tkDunkelGrau)
 
             GeometryReader { geometry in
@@ -65,16 +74,16 @@ struct HomeView: View {
                         Image("SmartPhone")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .padding([.top, .leading, .trailing], 50)
+                            .padding([.top, .leading, .trailing], isCompact ? 25 : 50)
 
                         VStack(alignment: .leading) {
                             if let person = person, person != "" {
                                 VStack(alignment: .leading, spacing: 10) {
                                     Text(person)
-                                        .font(.system(size: 50))
+                                        .font(.system(size: isCompact ? 25 : 50))
                                         .bold()
                                     Text("greeting".localized)
-                                        .font(.system(size: 20))
+                                        .font(.system(size: isCompact ? 10 : 20))
                                         .italic()
                                 }
                                 .padding()
@@ -84,7 +93,7 @@ struct HomeView: View {
                                     ForEach(Array(languageSelections), id: \.key) { language in
                                         if language.value {
                                             Text(language.key)
-                                                .font(.system(size: 50))
+                                                .font(.system(size: isCompact ? 25 : 50))
                                         }
                                     }
                                 }
@@ -97,7 +106,7 @@ struct HomeView: View {
                                     Text(phone)
                                 }
                                 .foregroundStyle(.tkWarmesGrau)
-                                .font(.system(size: 35))
+                                .font(.system(size: isCompact ? 17 : 35))
                             }
 
                             if email != "" {
@@ -106,7 +115,7 @@ struct HomeView: View {
                                     Text(email)
                                 }
                                 .foregroundStyle(.tkWarmesGrau)
-                                .font(.system(size: 35))
+                                .font(.system(size: isCompact ? 17 : 35))
                             }
 
                             if position != "" {
@@ -115,7 +124,7 @@ struct HomeView: View {
                                     Text(position)
                                 }
                                 .foregroundStyle(.tkWarmesGrau)
-                                .font(.system(size: 35))
+                                .font(.system(size: isCompact ? 17 : 35))
                             }
                         }
                     }
@@ -125,18 +134,19 @@ struct HomeView: View {
                         Image("SmartPhone")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .padding(.all, 50)
+                            .padding(.all, isCompact ? 25 : 50)
+                            .frame(width: UIScreen.main.bounds.width)
 
                         if let person = person, person != "" {
                             VStack(alignment: .leading, spacing: 10) {
                                 Text(person)
-                                    .font(.system(size: 50))
+                                    .font(.system(size: isCompact ? 25 : 50))
                                     .bold()
                                 Text("greeting".localized)
-                                    .font(.system(size: 35))
+                                    .font(.system(size: isCompact ? 17 : 35))
                                     .italic()
                             }
-                            .padding(.leading, 50)
+                            .padding(.leading, isCompact ? 25 : 50)
                         }
 
                         if !languageSelections.isEmpty {
@@ -144,12 +154,12 @@ struct HomeView: View {
                                 ForEach(Array(languageSelections), id: \.key) { language in
                                     if language.value {
                                         Text(language.key)
-                                            .font(.system(size: 50))
+                                            .font(.system(size: isCompact ? 25 : 50))
                                     }
                                 }
                             }
                             .padding(.top, 5)
-                            .padding(.leading, 50)
+                            .padding(.leading, isCompact ? 25 : 50)
                         }
 
                         if phone != "" {
@@ -158,8 +168,9 @@ struct HomeView: View {
                                 Text(phone)
                             }
                             .foregroundStyle(.tkWarmesGrau)
-                            .font(.system(size: 35))
-                            .padding(.leading, 50)
+                            .font(.system(size: isCompact ? 17 : 35))
+                            .padding(.top, isCompact ? 5 : 10)
+                            .padding(.leading, isCompact ? 25 : 50)
                         }
 
                         if email != "" {
@@ -168,8 +179,9 @@ struct HomeView: View {
                                 Text(email)
                             }
                             .foregroundStyle(.tkWarmesGrau)
-                            .font(.system(size: 35))
-                            .padding(.leading, 50)
+                            .font(.system(size: isCompact ? 17 : 35))
+                            .padding(.top, isCompact ? 5 : 10)
+                            .padding(.leading, isCompact ? 25 : 50)
                         }
 
                         if position != "" {
@@ -178,8 +190,9 @@ struct HomeView: View {
                                 Text(position)
                             }
                             .foregroundStyle(.tkWarmesGrau)
-                            .font(.system(size: 35))
-                            .padding(.leading, 50)
+                            .font(.system(size: isCompact ? 17 : 35))
+                            .padding(.top, isCompact ? 5 : 10)
+                            .padding(.leading, isCompact ? 25 : 50)
                         }
                     }
                 }
@@ -204,6 +217,9 @@ struct HomeView: View {
         .sheet(isPresented: $showingSettingsSheet) {
             SettingsView {
                 languageSelections = [:]
+                email = ""
+                phone = ""
+                position = ""
             }
         }
     }
