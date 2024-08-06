@@ -18,6 +18,10 @@
 		1F2247ED2C4500AD00537A2A /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2247EC2C4500AD00537A2A /* StringExtension.swift */; };
 		1F2247F02C4506B700537A2A /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2247EF2C4506B700537A2A /* Language.swift */; };
 		1F7EDF562C454861006112E5 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7EDF552C454861006112E5 /* SettingsView.swift */; };
+		1F967CBA2C62494200E57A49 /* SoletoTK_Md.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F967CB82C62494200E57A49 /* SoletoTK_Md.ttf */; };
+		1F967CBB2C62494200E57A49 /* SoletoTK_Bd.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F967CB92C62494200E57A49 /* SoletoTK_Bd.ttf */; };
+		1F967CBD2C62560F00E57A49 /* SoletoTK_MdIt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F967CBC2C62560F00E57A49 /* SoletoTK_MdIt.ttf */; };
+		1F967CBE2C62568000E57A49 /* Digital-Name-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F2247F12C453AE100537A2A /* Digital-Name-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +57,9 @@
 		1F2247EF2C4506B700537A2A /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		1F2247F12C453AE100537A2A /* Digital-Name-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Digital-Name-Info.plist"; sourceTree = SOURCE_ROOT; };
 		1F7EDF552C454861006112E5 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		1F967CB82C62494200E57A49 /* SoletoTK_Md.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SoletoTK_Md.ttf; sourceTree = "<group>"; };
+		1F967CB92C62494200E57A49 /* SoletoTK_Bd.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SoletoTK_Bd.ttf; sourceTree = "<group>"; };
+		1F967CBC2C62560F00E57A49 /* SoletoTK_MdIt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SoletoTK_MdIt.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +110,7 @@
 		1B7E0D1D2C3C400400B87286 /* Digital Name */ = {
 			isa = PBXGroup;
 			children = (
+				1F967CBF2C6256FA00E57A49 /* Soleto */,
 				1F2247F12C453AE100537A2A /* Digital-Name-Info.plist */,
 				1F2247EE2C4506A700537A2A /* Model */,
 				1F2247EB2C4500A100537A2A /* Extension */,
@@ -163,6 +171,16 @@
 				1F2247EF2C4506B700537A2A /* Language.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		1F967CBF2C6256FA00E57A49 /* Soleto */ = {
+			isa = PBXGroup;
+			children = (
+				1F967CBC2C62560F00E57A49 /* SoletoTK_MdIt.ttf */,
+				1F967CB92C62494200E57A49 /* SoletoTK_Bd.ttf */,
+				1F967CB82C62494200E57A49 /* SoletoTK_Md.ttf */,
+			);
+			path = Soleto;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,8 +296,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F967CBA2C62494200E57A49 /* SoletoTK_Md.ttf in Resources */,
+				1F967CBD2C62560F00E57A49 /* SoletoTK_MdIt.ttf in Resources */,
+				1F967CBB2C62494200E57A49 /* SoletoTK_Bd.ttf in Resources */,
 				1B7E0D282C3C400500B87286 /* Preview Assets.xcassets in Resources */,
 				1B7E0D252C3C400500B87286 /* Assets.xcassets in Resources */,
+				1F967CBE2C62568000E57A49 /* Digital-Name-Info.plist in Resources */,
 				1F2247E92C41930E00537A2A /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
