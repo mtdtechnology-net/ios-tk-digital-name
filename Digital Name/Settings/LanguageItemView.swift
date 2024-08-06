@@ -17,14 +17,14 @@ struct LanguageItemView: View {
     // MARK: - Body
 
     var body: some View {
+        let title2 = Font.custom("SoletoTK-Bold", size: 22)
+
         HStack {
             Text(language.icon)
-                .font(.title2)
-                .bold()
+                .font(title2)
             Toggle(language.description, isOn: $isOn)
                 .tint(.tkCyan)
-                .font(.title2)
-                .bold()
+                .font(title2)
         }
         .padding(.horizontal, 8)
     }

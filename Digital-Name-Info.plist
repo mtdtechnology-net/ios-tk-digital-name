@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict/>
+<dict>
+	<key>ATSApplicationFontsPath</key>
+	<string>Soleto/.</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>SoletoTK_MdIt.ttf</string>
+		<string>SoletoTK_Bd.ttf</string>
+		<string>SoletoTK_Md.ttf</string>
+	</array>
+</dict>
 </plist>
