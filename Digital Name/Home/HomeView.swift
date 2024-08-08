@@ -80,7 +80,7 @@ struct HomeView: View {
                     HStack {
                         Image("SmartPhone")
                             .resizable()
-                            .frame(width: (geometry.size.width / 2.5), height: (geometry.size.height / 2))
+                            .frame(width: (geometry.size.width / 2.5), height: (geometry.size.height / 1.4))
                             .aspectRatio(contentMode: .fit)
                             .padding([.top, .leading, .trailing], isCompact ? 25 : 50)
 
@@ -140,7 +140,7 @@ struct HomeView: View {
                     VStack(alignment: .leading) {
                         Image("SmartPhone")
                             .resizable()
-                            .frame(width: (geometry.size.width / 2.5), height: (geometry.size.height / 2))
+                            .frame(width: (geometry.size.width / 1.4), height: (geometry.size.height / 2))
                             .aspectRatio(contentMode: .fit)
                             .padding(.all, isCompact ? 25 : 50)
                             .frame(width: UIScreen.main.bounds.width)
