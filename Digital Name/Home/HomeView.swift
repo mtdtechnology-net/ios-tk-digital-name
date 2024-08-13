@@ -33,7 +33,7 @@ struct HomeView: View {
         let title17 = Font.custom("SoletoTK-Bold", size: 17)
         let title35 = Font.custom("SoletoTK-Bold", size: 35)
 
-        VStack(alignment: .leading) {
+        VStack {
             let isCompact = horizontalSizeClass == .compact
             let width = isCompact ? 50 : 100
             let height = isCompact ? 50 : 100
@@ -77,8 +77,8 @@ struct HomeView: View {
             GeometryReader { geometry in
                 if geometry.size.width > geometry.size.height {
                     /// LANDSCAPE
-                    HStack {
-                        Image("SmartPhone")
+                    HStack(alignment: .top) {
+                        Image("tk-image")
                             .resizable()
                             .frame(width: (geometry.size.width / 2.5), height: (geometry.size.height / 1.4))
                             .aspectRatio(contentMode: .fit)
@@ -139,71 +139,69 @@ struct HomeView: View {
                                 .padding(.horizontal)
                             }
                         }
+                        .padding(.top, isCompact ? 25 : 50)
                     }
                 } else {
                     /// PORTRAIT
                     VStack(alignment: .leading) {
-                        Image("SmartPhone")
+                        Image("tk-image")
                             .resizable()
-                            .frame(width: (geometry.size.width / 1.4), height: (geometry.size.height / 2))
+                            .frame(height: (geometry.size.height / 2))
                             .aspectRatio(contentMode: .fit)
-                            .padding(.all, isCompact ? 25 : 50)
-                            .frame(width: UIScreen.main.bounds.width)
-
-                        if let person = person, person != "" {
-                            VStack(alignment: .leading, spacing: 10) {
-                                Text("greeting".localized)
-                                    .font(isCompact ? title3 : title2)
-                                    .kerning(5)
-                                    .padding(.bottom, 20)
-                                Text(person)
-                                    .font(isCompact ? title : largeTitle)
+                            .padding(.top, isCompact ? 35 : 60)
+                            .padding(.horizontal, isCompact ? 25 : 80)
+                        VStack(alignment: .leading) {
+                            if let person = person, person != "" {
+                                VStack(alignment: .leading, spacing: 10) {
+                                    Text("greeting".localized)
+                                        .font(isCompact ? title3 : title2)
+                                        .kerning(5)
+                                        .padding([.top, .bottom], 20)
+                                    Text(person)
+                                        .font(isCompact ? title : largeTitle)
+                                }
+                                .foregroundStyle(.tkDunkelGrau)
                             }
-                            .foregroundStyle(.tkDunkelGrau)
-                            .padding(.leading, isCompact ? 25 : 50)
-                        }
 
-                        if !languageSelections.isEmpty {
-                            HStack {
-                                ForEach(Array(languageSelections), id: \.key) { language in
-                                    if language.value {
-                                        Text(language.key)
-                                            .font(isCompact ? title : largeTitle)
+                            if !languageSelections.isEmpty {
+                                HStack {
+                                    ForEach(Array(languageSelections), id: \.key) { language in
+                                        if language.value {
+                                            Text(language.key)
+                                                .font(isCompact ? title : largeTitle)
+                                        }
                                     }
                                 }
                             }
-                            .padding(.leading, isCompact ? 25 : 50)
-                        }
 
-                        if phone != "" {
-                            HStack(spacing: 20) {
-                                Image(systemName: "phone")
-                                Text(phone)
+                            if phone != "" {
+                                HStack(spacing: 20) {
+                                    Image(systemName: "phone")
+                                    Text(phone)
+                                }
+                                .foregroundStyle(.tkWarmesGrau)
+                                .font(isCompact ? title17 : title35)
                             }
-                            .foregroundStyle(.tkWarmesGrau)
-                            .font(isCompact ? title17 : title35)
-                            .padding(.leading, isCompact ? 25 : 50)
-                        }
 
-                        if email != "" {
-                            HStack(spacing: 20) {
-                                Image(systemName: "envelope")
-                                Text(email)
+                            if email != "" {
+                                HStack(spacing: 20) {
+                                    Image(systemName: "envelope")
+                                    Text(email)
+                                }
+                                .foregroundStyle(.tkWarmesGrau)
+                                .font(isCompact ? title17 : title35)
                             }
-                            .foregroundStyle(.tkWarmesGrau)
-                            .font(isCompact ? title17 : title35)
-                            .padding(.leading, isCompact ? 25 : 50)
-                        }
 
-                        if position != "" {
-                            HStack(spacing: 20) {
-                                Image(systemName: "person.badge.shield.checkmark")
-                                Text(position)
+                            if position != "" {
+                                HStack(spacing: 20) {
+                                    Image(systemName: "person.badge.shield.checkmark")
+                                    Text(position)
+                                }
+                                .foregroundStyle(.tkWarmesGrau)
+                                .font(isCompact ? title17 : title35)
                             }
-                            .foregroundStyle(.tkWarmesGrau)
-                            .font(isCompact ? title17 : title35)
-                            .padding(.leading, isCompact ? 25 : 50)
                         }
+                        .padding(.horizontal, isCompact ? 25 : 80)
                     }
                 }
             }
