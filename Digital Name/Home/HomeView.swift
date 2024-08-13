@@ -26,8 +26,8 @@ struct HomeView: View {
     // MARK: - Body
 
     var body: some View {
-        let title2 = Font.custom("SoletoTK-Bold", size: 20)
-        let title3 = Font.custom("SoletoTK-Bold", size: 10)
+        let title2 = Font.custom("SoletoTK-Medium", size: 30)
+        let title3 = Font.custom("SoletoTK-Medium", size: 20)
         let title = Font.custom("SoletoTK-Bold", size: 25)
         let largeTitle = Font.custom("SoletoTK-Bold", size: 50)
         let title17 = Font.custom("SoletoTK-Bold", size: 17)
@@ -51,7 +51,7 @@ struct HomeView: View {
                     Button {
                         showingDataEntrySheet.toggle()
                     } label: {
-                        Image(systemName: "person.text.rectangle")
+                        Image(systemName: "text.justify")
                             .resizable()
                             .foregroundColor(.white)
                             .frame(width: isCompact ? 30 : 60,
@@ -87,13 +87,15 @@ struct HomeView: View {
                         VStack(alignment: .leading) {
                             if let person = person, person != "" {
                                 VStack(alignment: .leading, spacing: 10) {
-                                    Text(person)
-                                        .font(isCompact ? title : largeTitle)
                                     Text("greeting".localized)
                                         .font(isCompact ? title3 : title2)
-                                        .italic()
+                                        .kerning(5)
+                                        .padding(.bottom, 20)
+                                    Text(person)
+                                        .font(isCompact ? title : largeTitle)
                                 }
-                                .padding()
+                                .foregroundStyle(.tkDunkelGrau)
+                                .padding(.horizontal)
                             }
                             if !languageSelections.isEmpty {
                                 HStack {
@@ -104,7 +106,7 @@ struct HomeView: View {
                                         }
                                     }
                                 }
-                                .padding(.top, 5)
+                                .padding(.horizontal)
                             }
 
                             if phone != "" {
@@ -114,6 +116,7 @@ struct HomeView: View {
                                 }
                                 .foregroundStyle(.tkWarmesGrau)
                                 .font(isCompact ? title17 : title35)
+                                .padding(.horizontal)
                             }
 
                             if email != "" {
@@ -123,6 +126,7 @@ struct HomeView: View {
                                 }
                                 .foregroundStyle(.tkWarmesGrau)
                                 .font(isCompact ? title17 : title35)
+                                .padding(.horizontal)
                             }
 
                             if position != "" {
@@ -132,6 +136,7 @@ struct HomeView: View {
                                 }
                                 .foregroundStyle(.tkWarmesGrau)
                                 .font(isCompact ? title17 : title35)
+                                .padding(.horizontal)
                             }
                         }
                     }
@@ -147,12 +152,14 @@ struct HomeView: View {
 
                         if let person = person, person != "" {
                             VStack(alignment: .leading, spacing: 10) {
+                                Text("greeting".localized)
+                                    .font(isCompact ? title3 : title2)
+                                    .kerning(5)
+                                    .padding(.bottom, 20)
                                 Text(person)
                                     .font(isCompact ? title : largeTitle)
-                                Text("greeting".localized)
-                                    .font(isCompact ? title17 : title35)
-                                    .italic()
                             }
+                            .foregroundStyle(.tkDunkelGrau)
                             .padding(.leading, isCompact ? 25 : 50)
                         }
 
@@ -165,7 +172,6 @@ struct HomeView: View {
                                     }
                                 }
                             }
-                            .padding(.top, 5)
                             .padding(.leading, isCompact ? 25 : 50)
                         }
 
@@ -176,7 +182,6 @@ struct HomeView: View {
                             }
                             .foregroundStyle(.tkWarmesGrau)
                             .font(isCompact ? title17 : title35)
-                            .padding(.top, isCompact ? 5 : 10)
                             .padding(.leading, isCompact ? 25 : 50)
                         }
 
@@ -187,7 +192,6 @@ struct HomeView: View {
                             }
                             .foregroundStyle(.tkWarmesGrau)
                             .font(isCompact ? title17 : title35)
-                            .padding(.top, isCompact ? 5 : 10)
                             .padding(.leading, isCompact ? 25 : 50)
                         }
 
@@ -198,7 +202,6 @@ struct HomeView: View {
                             }
                             .foregroundStyle(.tkWarmesGrau)
                             .font(isCompact ? title17 : title35)
-                            .padding(.top, isCompact ? 5 : 10)
                             .padding(.leading, isCompact ? 25 : 50)
                         }
                     }

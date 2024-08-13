@@ -852,61 +852,61 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "يرحب بكم."
+            "value" : "يرحب بك"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "begrüßt Sie."
+            "value" : "Es begrüßt Sie"
           }
         },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "σας χαιρετά."
+            "value" : "Σε καλωσορίζει"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "greets you"
+            "value" : "It welcomes you"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "le saluda."
+            "value" : "Te da la bienvenida"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "vi saluta."
+            "value" : "Ti dà il benvenuto"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "wita Państwa."
+            "value" : "Wita cię"
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "vă salută."
+            "value" : "Te întâmpină"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "приветствует вас."
+            "value" : "Приветствует вас"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "sizi selamlıyor."
+            "value" : "Sizi karşılıyor"
           }
         }
       }
