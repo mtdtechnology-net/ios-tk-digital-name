@@ -32,6 +32,8 @@ struct HomeView: View {
         let largeTitle = Font.custom("SoletoTK-Bold", size: 50)
         let title17 = Font.custom("SoletoTK-Bold", size: 17)
         let title35 = Font.custom("SoletoTK-Bold", size: 35)
+        let languageFont = Font.custom("SoletoTK-Bold", size: 120)
+        let welcomeFont = Font.custom("SoletoTK-Medium", size: 70)
 
         VStack {
             let isCompact = horizontalSizeClass == .compact
@@ -78,19 +80,20 @@ struct HomeView: View {
                 if geometry.size.width > geometry.size.height {
                     /// LANDSCAPE
                     HStack(alignment: .top) {
-                        Image("tk-image")
-                            .resizable()
-                            .frame(width: (geometry.size.width / 2.5), height: (geometry.size.height / 1.4))
-                            .aspectRatio(contentMode: .fit)
-                            .padding([.top, .leading, .trailing], isCompact ? 25 : 50)
-
                         VStack(alignment: .leading) {
+                            Text("welcome".localized)
+                                .font(isCompact ? largeTitle : welcomeFont)
+                                .foregroundStyle(.tkCyan)
+                                .padding(.top, 70)
+                                .padding(.bottom, 35)
+                                .padding(.horizontal)
+
                             if let person = person, person != "" {
-                                VStack(alignment: .leading, spacing: 10) {
+                                VStack(alignment: .leading, spacing: 5) {
                                     Text("greeting".localized)
                                         .font(isCompact ? title3 : title2)
                                         .kerning(5)
-                                        .padding(.bottom, 20)
+                                        .padding(.bottom, 5)
                                     Text(person)
                                         .font(isCompact ? title : largeTitle)
                                 }
@@ -98,11 +101,11 @@ struct HomeView: View {
                                 .padding(.horizontal)
                             }
                             if !languageSelections.isEmpty {
-                                HStack {
+                                HStack(spacing: 10) {
                                     ForEach(Array(languageSelections), id: \.key) { language in
                                         if language.value {
                                             Text(language.key)
-                                                .font(isCompact ? title : largeTitle)
+                                                .font(isCompact ? welcomeFont : languageFont)
                                         }
                                     }
                                 }
@@ -140,23 +143,26 @@ struct HomeView: View {
                             }
                         }
                         .padding(.top, isCompact ? 25 : 50)
+                        .padding(.horizontal, 30)
+
+                        Spacer()
                     }
                 } else {
                     /// PORTRAIT
                     VStack(alignment: .leading) {
-                        Image("tk-image")
-                            .resizable()
-                            .frame(height: (geometry.size.height / 2))
-                            .aspectRatio(contentMode: .fit)
-                            .padding(.top, isCompact ? 35 : 60)
-                            .padding(.horizontal, isCompact ? 25 : 80)
                         VStack(alignment: .leading) {
+                            Text("welcome".localized)
+                                .font(isCompact ? largeTitle : welcomeFont)
+                                .foregroundStyle(.tkCyan)
+                                .padding(.top, 100)
+                                .padding(.bottom, 50)
+
                             if let person = person, person != "" {
                                 VStack(alignment: .leading, spacing: 10) {
                                     Text("greeting".localized)
                                         .font(isCompact ? title3 : title2)
                                         .kerning(5)
-                                        .padding([.top, .bottom], 20)
+                                        .padding([.top, .bottom], 10)
                                     Text(person)
                                         .font(isCompact ? title : largeTitle)
                                 }
@@ -164,14 +170,15 @@ struct HomeView: View {
                             }
 
                             if !languageSelections.isEmpty {
-                                HStack {
+                                HStack(spacing: 10) {
                                     ForEach(Array(languageSelections), id: \.key) { language in
                                         if language.value {
                                             Text(language.key)
-                                                .font(isCompact ? title : largeTitle)
+                                                .font(isCompact ? welcomeFont : languageFont)
                                         }
                                     }
                                 }
+                                .padding([.top, .bottom], 10)
                             }
 
                             if phone != "" {
