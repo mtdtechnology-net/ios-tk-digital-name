@@ -53,11 +53,12 @@ struct HomeView: View {
                     Button {
                         showingDataEntrySheet.toggle()
                     } label: {
-                        Image(systemName: "text.justify")
+                        Image(systemName: "line.3.horizontal")
                             .resizable()
-                            .foregroundColor(.white)
-                            .frame(width: isCompact ? 30 : 60,
-                                   height: isCompact ? 20 : 40)
+                            .foregroundColor(.tkDunkelGrau)
+                            .frame(width: isCompact ? 20 : 40,
+                                   height: isCompact ? 15 : 30)
+                            .shadow(color: .tkHellgrau, radius: 0)
                     }
                     .padding()
 
@@ -66,7 +67,7 @@ struct HomeView: View {
                     } label: {
                         Image(systemName: "gearshape.fill")
                             .resizable()
-                            .foregroundColor(.white)
+                            .foregroundColor(.tkDunkelGrau)
                             .frame(width:  CGFloat(leadingPadding),
                                    height:  CGFloat(leadingPadding))
                     }
@@ -74,7 +75,8 @@ struct HomeView: View {
                 }
             }
             .frame(maxHeight: CGFloat(topPadding))
-            .background(.tkDunkelGrau)
+            .background(.tkHellgrau)
+            .shadow(color: .tkDunkelGrau.opacity(0.3), radius: 3, y: 5)
 
             GeometryReader { geometry in
                 if geometry.size.width > geometry.size.height {
