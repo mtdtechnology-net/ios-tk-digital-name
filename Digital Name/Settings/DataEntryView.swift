@@ -36,19 +36,28 @@ struct DataEntryView: View {
             HStack {
                 Text("data_entry".localized)
                     .font(.title)
-                    .foregroundStyle(.white)
-                    .padding()
+                    .fontWeight(.semibold)
+                    .foregroundStyle(.tkDunkelGrau)
                 Spacer()
                 Button {
                     save()
                 } label: {
                     Text("save".localized)
-                        .font(isCompact ? title3 : title2)
+                        .font(isCompact ? title2 : title)
                 }
-                .padding()
+                .foregroundStyle(.tkCyan)
             }
-            .frame(maxHeight: 80)
-            .background(.tkDunkelGrau)
+            .frame(maxWidth: .infinity)
+            .frame(height: 80)
+            .padding(.horizontal, 25)
+            .background(.white)
+
+            Rectangle()
+                .fill(.tkHellgrau)
+                .frame(maxWidth: .infinity)
+                .frame(height: 1)
+                .shadow(color: .black.opacity(0.3), radius: 2, y: 3)
+
             ScrollView {
                 VStack(alignment: .leading) {
                     Text("info_description".localized)
@@ -137,7 +146,7 @@ struct DataEntryView: View {
             .padding(.bottom, isCompact ? 10 : 20)
             .onAppear(perform: load)
         }
-        .background(.tkHellgrau)
+        .background(.white)
     }
 
     private func binding(for language: Language) -> Binding<Bool> {
