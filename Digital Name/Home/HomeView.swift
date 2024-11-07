@@ -55,10 +55,11 @@ struct HomeView: View {
                     } label: {
                         Image(systemName: "line.3.horizontal")
                             .resizable()
-                            .foregroundColor(.tkDunkelGrau)
-                            .frame(width: isCompact ? 20 : 40,
-                                   height: isCompact ? 15 : 30)
-                            .shadow(color: .tkHellgrau, radius: 0)
+                            .foregroundStyle(.black.opacity(0.6))
+                            .frame(
+                                width: isCompact ? 20 : 40,
+                                height: isCompact ? 15 : 30
+                            )
                     }
                     .padding()
 
@@ -67,16 +68,16 @@ struct HomeView: View {
                     } label: {
                         Image(systemName: "gearshape.fill")
                             .resizable()
-                            .foregroundColor(.tkDunkelGrau)
+                            .foregroundStyle(.black.opacity(0.6))
                             .frame(width:  CGFloat(leadingPadding),
                                    height:  CGFloat(leadingPadding))
                     }
                     .padding()
                 }
             }
-            .frame(maxHeight: CGFloat(topPadding))
-            .background(.tkHellgrau)
-            .shadow(color: .tkDunkelGrau.opacity(0.3), radius: 3, y: 5)
+            .frame(height: CGFloat(topPadding))
+            .background(.white)
+            .shadow(color: .black.opacity(0.3), radius: 3, y: 5)
 
             GeometryReader { geometry in
                 if geometry.size.width > geometry.size.height {
@@ -216,7 +217,7 @@ struct HomeView: View {
             }
             Spacer()
         }
-        .background(.tkHellgrau)
+        .background(.white)
         .onAppear {
             load()
             NotificationCenter.default.addObserver(forName: UIDevice.orientationDidChangeNotification, object: nil, queue: .main) { _ in

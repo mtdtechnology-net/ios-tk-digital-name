@@ -25,13 +25,19 @@ struct SettingsView: View {
             HStack {
                 Text("settings".localized)
                     .font(.title)
-                    .foregroundStyle(.white)
+                    .foregroundStyle(.tkDunkelGrau)
                     .bold()
-                    .padding()
+                    .padding(.leading, 25)
                 Spacer()
             }
-            .frame(maxHeight: 80)
-            .background(.tkDunkelGrau)
+            .frame(height: 80)
+            .background(.white)
+
+            Rectangle()
+                .fill(.tkHellgrau)
+                .frame(maxWidth: .infinity)
+                .frame(height: 1)
+                .shadow(color: .black.opacity(0.3), radius: 2, y: 3)
 
             Spacer()
 
@@ -75,7 +81,7 @@ struct SettingsView: View {
             }
             .padding()
         }
-        .background(.tkHellgrau)
+        .background(.white)
     }
 
     private func openAppSettings() {
