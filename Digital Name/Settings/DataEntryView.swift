@@ -22,6 +22,7 @@ struct DataEntryView: View {
     @Binding var email: String
     @Binding var position: String
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    @State private var isShowingSettings = false
 
     // MARK: - Body
 
@@ -142,11 +143,35 @@ struct DataEntryView: View {
                     }
                 }
                 .padding()
+
+                
+                Button {
+                    isShowingSettings = true
+                } label: {
+                    Text("Open Settings")
+                        .font(isCompact ? title2 : title)
+                        .foregroundStyle(.white)
+                        .padding()
+                        .background(.tkCyan)
+                        .cornerRadius(10)
+
+                    Spacer()
+                }
+                .padding()
+
             }
             .padding(.bottom, isCompact ? 10 : 20)
             .onAppear(perform: load)
         }
         .background(.white)
+        .sheet(isPresented: $isShowingSettings) {
+            SettingsView(hasTappedOnClear: {
+                languageSelections = [:]
+                email = ""
+                phone = ""
+                position = ""
+            })
+        }
     }
 
     private func binding(for language: Language) -> Binding<Bool> {

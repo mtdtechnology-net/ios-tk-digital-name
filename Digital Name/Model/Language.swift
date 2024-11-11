@@ -21,19 +21,18 @@ enum Language: String, CaseIterable, Identifiable {
 }
 
 extension Language {
-
     var icon: String {
         switch self {
-        case .english: "🏴󠁧󠁢󠁥󠁮󠁧󠁿"
-        case .turkish: "🇹🇷"
-        case .spanish: "🇪🇸"
-        case .russian: "🇷🇺"
-        case .romanian: "🇷🇴"
-        case .polish: "🇵🇱"
-        case .italian: "🇮🇹"
-        case .greek: "🇬🇷"
-        case .german: "🇩🇪"
-        case .arabic: "🇸🇦, 🇦🇪, 🇧🇭, 🇶🇦, 🇾🇪..."
+        case .english: "england"
+        case .turkish: "turkey"
+        case .spanish: "spain"
+        case .russian: "russia"
+        case .romanian: "romania"
+        case .polish: "poland"
+        case .italian: "italy"
+        case .greek: "greece"
+        case .german: "germany"
+        case .arabic: "arabic"
         }
     }
 

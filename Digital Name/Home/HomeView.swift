@@ -18,7 +18,6 @@ struct HomeView: View {
     @State private var email: String = ""
     @State private var position: String = ""
     @AppStorage("person") private var person: String?
-    @State private var showingSettingsSheet = false
     @State private var showingDataEntrySheet = false
     @State private var orientation = UIDevice.current.orientation
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
@@ -53,24 +52,14 @@ struct HomeView: View {
                     Button {
                         showingDataEntrySheet.toggle()
                     } label: {
-                        Image(systemName: "line.3.horizontal")
+                        Image("profile")
                             .resizable()
+                            .aspectRatio(contentMode: .fit)
                             .foregroundStyle(.black.opacity(0.6))
                             .frame(
-                                width: isCompact ? 20 : 40,
-                                height: isCompact ? 15 : 30
+                                width: isCompact ? 30 : 50,
+                                height: isCompact ? 30 : 50
                             )
-                    }
-                    .padding()
-
-                    Button {
-                        showingSettingsSheet.toggle()
-                    } label: {
-                        Image(systemName: "gearshape.fill")
-                            .resizable()
-                            .foregroundStyle(.black.opacity(0.6))
-                            .frame(width:  CGFloat(leadingPadding),
-                                   height:  CGFloat(leadingPadding))
                     }
                     .padding()
                 }
@@ -107,8 +96,9 @@ struct HomeView: View {
                                 HStack(spacing: 10) {
                                     ForEach(Array(languageSelections), id: \.key) { language in
                                         if language.value {
-                                            Text(language.key)
-                                                .font(isCompact ? welcomeFont : languageFont)
+                                            Image(language.key)
+                                                .resizable()
+                                                .frame(width: 90, height: 90)
                                         }
                                     }
                                 }
@@ -176,8 +166,9 @@ struct HomeView: View {
                                 HStack(spacing: 10) {
                                     ForEach(Array(languageSelections), id: \.key) { language in
                                         if language.value {
-                                            Text(language.key)
-                                                .font(isCompact ? welcomeFont : languageFont)
+                                            Image(language.key)
+                                                .resizable()
+                                                .frame(width: 90, height: 90)
                                         }
                                     }
                                 }
@@ -232,14 +223,6 @@ struct HomeView: View {
                 position: $position
             )
         }
-        .sheet(isPresented: $showingSettingsSheet) {
-            SettingsView {
-                languageSelections = [:]
-                email = ""
-                phone = ""
-                position = ""
-            }
-        }
     }
 
     // MARK: - Private methods
@@ -248,12 +231,6 @@ struct HomeView: View {
         if let languageSelectionsData = languageSelectionsData,
            let savedSelections = try? JSONDecoder().decode([String: Bool].self, from: languageSelectionsData) {
             languageSelections = savedSelections
-        }
-    }
-
-    private func showSetting() {
-        withAnimation {
-            showingSettingsSheet.toggle()
         }
     }
 
