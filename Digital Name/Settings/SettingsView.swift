@@ -17,6 +17,7 @@ struct SettingsView: View {
     @AppStorage("phone") private var phoneCache: String?
     @AppStorage("position") private var positionCache: String?
     var hasTappedOnClear: () -> Void
+    @Environment(\.dismiss) var dismiss
 
     // MARK: - Body
 
@@ -29,6 +30,15 @@ struct SettingsView: View {
                     .bold()
                     .padding(.leading, 25)
                 Spacer()
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: "x.circle")
+                        .font(.title)
+                        .bold()
+                        .foregroundStyle(.tkDunkelGrau)
+                }
+                .padding(.trailing, 25)
             }
             .frame(height: 80)
             .background(.white)

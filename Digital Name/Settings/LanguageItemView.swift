@@ -20,8 +20,10 @@ struct LanguageItemView: View {
         let title2 = Font.custom("SoletoTK-Bold", size: 22)
 
         HStack {
-            Text(language.icon)
-                .font(title2)
+            Image(language.icon)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 60, height: 60)
             Toggle(language.description, isOn: $isOn)
                 .tint(.tkCyan)
                 .font(title2)
