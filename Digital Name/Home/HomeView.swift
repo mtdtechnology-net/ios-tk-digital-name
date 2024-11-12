@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import SwiftData
 
 struct HomeView: View {
 
@@ -31,7 +30,6 @@ struct HomeView: View {
         let largeTitle = Font.custom("SoletoTK-Bold", size: 50)
         let title17 = Font.custom("SoletoTK-Bold", size: 17)
         let title35 = Font.custom("SoletoTK-Bold", size: 35)
-        let languageFont = Font.custom("SoletoTK-Bold", size: 120)
         let welcomeFont = Font.custom("SoletoTK-Medium", size: 70)
 
         VStack {
@@ -93,12 +91,13 @@ struct HomeView: View {
                                 .padding(.horizontal)
                             }
                             if !languageSelections.isEmpty {
-                                HStack(spacing: 10) {
-                                    ForEach(Array(languageSelections), id: \.key) { language in
-                                        if language.value {
-                                            Image(language.key)
+                                let selectedLanguages = languageSelections.filter { $0.value }.map { $0.key }
+                                ScrollView(.horizontal, showsIndicators: false) {
+                                    HStack(spacing: 30) {
+                                        ForEach(selectedLanguages.indices, id: \.self) { index in
+                                            Image(selectedLanguages[index])
                                                 .resizable()
-                                                .frame(width: 90, height: 90)
+                                                .frame(width: 70, height: 50)
                                         }
                                     }
                                 }
@@ -163,12 +162,13 @@ struct HomeView: View {
                             }
 
                             if !languageSelections.isEmpty {
-                                HStack(spacing: 10) {
-                                    ForEach(Array(languageSelections), id: \.key) { language in
-                                        if language.value {
-                                            Image(language.key)
+                                let selectedLanguages = languageSelections.filter { $0.value }.map { $0.key }
+                                ScrollView(.horizontal, showsIndicators: false) {
+                                    HStack(spacing: 30) {
+                                        ForEach(selectedLanguages.indices, id: \.self) { index in
+                                            Image(selectedLanguages[index])
                                                 .resizable()
-                                                .frame(width: 90, height: 90)
+                                                .frame(width: 70, height: 50)
                                         }
                                     }
                                 }
