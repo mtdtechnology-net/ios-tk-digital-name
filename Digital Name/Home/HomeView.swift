@@ -99,6 +99,7 @@ struct HomeView: View {
                                                 .resizable()
                                                 .frame(width: 70, height: 50)
                                         }
+                                        Spacer()
                                     }
                                 }
                                 .padding(.horizontal)
@@ -170,6 +171,7 @@ struct HomeView: View {
                                                 .resizable()
                                                 .frame(width: 70, height: 50)
                                         }
+                                        Spacer()
                                     }
                                 }
                                 .padding([.top, .bottom], 10)
